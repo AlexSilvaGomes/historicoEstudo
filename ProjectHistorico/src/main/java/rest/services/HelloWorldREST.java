@@ -1,4 +1,4 @@
-package services;
+package rest.services;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
