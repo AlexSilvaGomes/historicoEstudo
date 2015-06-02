@@ -20,7 +20,7 @@ import br.com.historico.services.model.Historicos;
 public class TesteService {
 
 	@GET
-	public Historico getContent() {	
+	public Historicos getContent() {	
 		
     Historico hist = new Historico.Builder("sentence").category("inglês").descricao("long time no see").build();    
     Historico hist2 = new Historico.Builder("sentence").category("inglês").descricao("I have nothing to do with this").build();   
@@ -34,6 +34,6 @@ public class TesteService {
     /*Gson object = new Gson();
     System.out.println(object.toJson(hist));
     */
-	return hist;
+	return listOfHistoricos;
 	}
 }

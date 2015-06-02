@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type='text/css' href='css/historico.css' rel='stylesheet'>
+<script src='js/jquery-1.11.2.min.js' type='text/javascript'></script>
+<script src='js/historico.js' type='text/javascript'></script>
 <title>Insert title here</title>
 </head>
 <body>
-  <h2>Server Listening well!!</h2>
+  <h4>Server Listening well!!</h4>
+  
+  <input id="button-test" type="button"  value="Testar"  draggable="true"> </input>
 </body>
 </html>
