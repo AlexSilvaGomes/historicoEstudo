@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://java.sun.com/xml/ns/javaee" 
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Restful Web Application</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+
+<!--  Utiliza-se esta configurão de mapeamento do jersey quando utilizado versão de servelt 3.0 pra cima -->
+<!-- <servlet> 
+  <servlet-name>br.com.historico.services.ApplicationJAXRS</servlet-name>   
+   <load-on-startup>1</load-on-startup> 
+   
+   
+</servlet>
+  
+<servlet-mapping>
+   <servlet-name>br.com.historico.services.ApplicationJAXRS</servlet-name>   
+   <url-pattern>/services/*</url-pattern>
+</servlet-mapping> -->
+
+<!--  Utiliza-se esta configurão de mapeamento do jersey quando utilizado versão de servelt menor que 3.0 -->
+<!-- <servlet>
+	<servlet-name>Jersey Servlet</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+   <init-param> 
+	  <param-name>javax.ws.rs.Application</param-name>
+	  <param-value>br.com.historico.services.ApplicationJAXRS</param-value>
+   </init-param>
+   <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>Jersey Servlet</servlet-name>
+   <url-pattern>/*</url-pattern>
+</servlet-mapping>
+ -->
+ 
+  <servlet>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>br.com.historico.services</param-value>
+	</init-param>
+	<init-param>
+		<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+		<param-value>true</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+ 
+  <servlet-mapping>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+ 
+</web-app>

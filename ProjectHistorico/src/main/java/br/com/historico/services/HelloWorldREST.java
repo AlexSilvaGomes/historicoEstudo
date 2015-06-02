@@ -1,4 +1,4 @@
-package rest.services;
+package br.com.historico.services;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -7,7 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
-@Path("/helloWorldREST")
+@Path("/hello")
 public class HelloWorldREST {
 
 	@GET
