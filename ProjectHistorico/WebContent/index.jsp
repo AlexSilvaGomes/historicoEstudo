@@ -70,16 +70,21 @@
 					<input id="button-test" class="btn btn-primary" type="button" value="Get Content" draggable="true" />					
 					
 					<hr/>
-					<div class="alert alert-info" role="alert">nothing to show yet..</div>
+					<div id="div-alert" class="alert alert-info" role="alert">nothing to show yet..</div>
 					
 					<table id="table-content"  class="table table-striped table-hover">
 					   
-						<tbody>
-						   <tr> 
-						        <td><b>Assunto</b></td>
+					    
+					     <thead>
+					       <tr class="info"> 
+					            <td  ><b>Assunto</b></td>
 								<td><b>Sobre</b></td>
 								<td><b>Descrição</b></td>
-						  </tr>
+						  </tr>	
+						 </thead>				    
+					    
+						<tbody  style="border: 1px"  >
+						   
 							
 						</tbody>
 					</table>

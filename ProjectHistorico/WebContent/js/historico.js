@@ -52,11 +52,19 @@
   	      tagmode: "any",
   	      format: "json"
   	    }).done(function( data ) {
-  	    	  
-  	    	 $.each( data.historicos, function( i, historico ) {
-  	  	       
-  	    		var $tableOfContents = $("#table-content");  	    		
-  	    		
+  	    	 
+  	    	
+           
+  	        if(data==undefined){  	        
+  	          showWarningMessage("The Register you are looking for is not here!!!");
+  	      	  return;
+  	         }
+  	         
+  	         var $rowsOfContents = $("#table-content tbody > tr"); 
+  	         $rowsOfContents.remove();  	        
+  	        
+  	    	 $.each( data.historicos, function( i, historico ) { 
+  	    		var $tableOfContents = $("#table-content"); 
   	    		var newRow = $("<tr>");  	    		
   	    		var newCol = '';
   	    		newCol += '<td>'+historico.category+ '</td>';
@@ -65,11 +73,12 @@
 				
 				newRow.append(newCol);
   	    		$tableOfContents.append(newRow);
+  	    		showSuccessMessage(" that's what you were running after!");
   	    		
   	  	        });
   	      });   
   	
-  	    
+    
   	    
   }); //Close button-test    
    	
@@ -82,6 +91,42 @@
      }	 
 	 return url;
  }
+ 
+ 
+ function showSuccessMessage(message){
+	 
+	 $div = $("#div-alert");   	 
+     $div.html(message);     
+   	 //$div.addClass("alert-success");	 
+     $div.attr( "class", "alert alert-success" );
+ }
+ 
+ 
+function showWarningMessage(message){
+	 
+	 $div = $("#div-alert");   	 
+     $div.html(message);     
+   	 //$div.addClass("alert-warning");	
+   	 $div.attr( "class", "alert alert-warning" );
+ }
+
+function showErrorMessage(message){
+	
+	 $div = $("#div-alert");   	 
+     $div.html(message);     
+  	 //$div.addClass("alert-danger");	 
+  	 $div.attr( "class", "alert alert-danger" );
+}
+
+function showInfoMessage(message){
+	 
+	 $div = $("#div-alert");   	 
+     $div.html(message);     
+ 	 //$div.addClass("alert-info");
+     $div.attr( "class", "alert alert-info" );
+ 
+}
+ 
  
  function onButtonShow(){
     $('#button-click').show();

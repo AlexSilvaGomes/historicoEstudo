@@ -64,11 +64,13 @@ public class TesteService {
 		}
 		
 		if(searched!=null && !searched.equals("")){
-			historicosToReturn.add(searched);
+			historicosToReturn.add(searched);		    
+		    return new Historicos(historicosToReturn);
+		}else{
+			return null;
 		}
-
-		Historicos listOfHistoricos = new Historicos(historicosToReturn);		
-		return listOfHistoricos;		
+				
+			
 	}
 	
 	
