@@ -7,10 +7,8 @@
  * ****************************************************************
  * */
  $(function(){
-	 
-   	alert("Page Loaded!");  
-   	//$('#button-click').hide();  
-   	
+	
+   	   	
    	jQuery('#button-click').hover(function(){
    		
    	}, function(){   		
@@ -44,32 +42,46 @@
    	
    	
    	$('#button-test').click(function(){
-      	 
-  	  var historicos = "http://localhost:8080/ProjectHistorico/services/getContent";
-  	    $.getJSON( historicos, {
+   	  
+      var $search = $("#text-search"); 
+      searchValue = $search.val();      
+      var urlHistoricos = createUrl("http://localhost:8080/ProjectHistorico/services/getContent",searchValue);
+                  
+  	  $.getJSON( urlHistoricos, {
   	      tags: "mount rainier",
   	      tagmode: "any",
   	      format: "json"
-  	    })
-  	      .done(function( data ) {
+  	    }).done(function( data ) {
   	    	  
-  	    	  console.log('object data '+data);  
-  	    	  
-  	        $.each( data.items, function( i, item ) {
-  	         /* $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-  	          if ( i === 6 ) {
-  	            return false;
-  	          }*/  	        	
-  	        	
-  	        alert(item.descricao);	
-  	        	  	           	
-  	        });
+  	    	 $.each( data.historicos, function( i, historico ) {
+  	  	       
+  	    		var $tableOfContents = $("#table-content");  	    		
+  	    		
+  	    		var newRow = $("<tr>");  	    		
+  	    		var newCol = '';
+  	    		newCol += '<td>'+historico.category+ '</td>';
+  	    		newCol += '<td>'+historico.name+     '</td>';				
+				newCol += '<td>'+historico.descricao+'</td>';	
+				
+				newRow.append(newCol);
+  	    		$tableOfContents.append(newRow);
+  	    		
+  	  	        });
   	      });   
   	
+  	    
+  	    
   }); //Close button-test    
    	
  }); //Close main function 
      
+ function createUrl(url,parameter){
+	 
+	 if(parameter!=null || parameter!=""){
+		 url=url.concat("/",parameter);
+     }	 
+	 return url;
+ }
  
  function onButtonShow(){
     $('#button-click').show();
