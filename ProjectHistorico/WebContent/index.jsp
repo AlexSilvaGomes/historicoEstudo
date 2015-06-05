@@ -27,22 +27,18 @@
 
 <body>
 	<!-- HEADER -->
-	<header class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="navbar">
-				<div class="navbar-inner">
-					<div class="container">
-						<h4>Remember Everything</h4>
-					</div>
-				</div>
+	<header   class="container-fluid"   >
+	<div class="row-fluid well" style="margin-bottom: 2px;background-color: white;" >
+		<div class="span12">			
+			<div class="container">
+				<h4 align="center">Remember Everything</h4>
 			</div>
 		</div>
 	</div>
 	</header>
 	<!-- / HEADER -->
 	<!-- CLASSE QUE DEFINE O CONTAINER COMO FLUIDO (100%) -->
-	<div class="container-fluid">
+	<div  class="container-fluid">
 		<!-- CLASSE PARA DEFINIR UMA LINHA -->
 		<div class="row-fluid">
 			<!-- COLUNA OCUPANDO 2 ESPAÇOS NO GRID -->
@@ -57,7 +53,7 @@
 			<!-- COLUNA OCUPANDO 10 ESPAÇOS NO GRID -->
 			<div class="span10">
 				<div class="well">
-					<h2>Content</h2>
+					<h2>History</h2>
 					<hr />
 
 					<div class="form-group">
@@ -77,10 +73,11 @@
 					    
 					     <thead>
 					       <tr class="info"> 
-					            <td  ><b>Assunto</b></td>
-								<td><b>Sobre</b></td>
-								<td><b>Descrição</b></td>
-						  </tr>	
+					            <th><b>Assunto</b></th>
+								<th><b>Sobre</b></th>
+								<th><b>Descrição</b></th>
+								<th><b>Actions</b></th>
+				     	  </tr>	
 						 </thead>				    
 					    
 						<tbody  style="border: 1px"  >
@@ -90,6 +87,8 @@
 					</table>
 					
 					<button class="btn btn-primary btn-small">Add</button>
+					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
+					
 				</div>
 			</div>
 		</div>

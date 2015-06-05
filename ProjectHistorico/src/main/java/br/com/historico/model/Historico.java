@@ -3,7 +3,10 @@ package br.com.historico.model;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+
 
 /**
  * @author Alex
@@ -88,6 +91,7 @@ public class Historico {
 		this.descricao = descricao;
 	}
 	
+	@XmlElement(name="Categoria")
 	public String getCategory() {
 		return category;
 	}
