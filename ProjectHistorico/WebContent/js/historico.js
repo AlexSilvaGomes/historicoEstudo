@@ -21,7 +21,7 @@
    	$('#button-clean').click(
    		function(){
    		  cleanTable();	
-   		  showWarningMessage('you cleaned up all your register!');
+   		  showWarningMessage('You cleaned up all your registers!');
    		}	
    	);
    	
@@ -60,61 +60,33 @@
   	    			  };
   	    		  }
   	    		 
-  	    		//eval( "variavelNumero_"+i + " = 'assda' ;" );
-  	    		 
-  	    		 
-  	    		/*var $tableOfContents = $("#table-content"); 
-  	    		var newRow = $("<tr>");   	    		
-  	    		var newInput = $("<input>");   	    		  	    		
-  	    		var newCol = '';
-  	    		
-  	    		newCol += '<td>'+historico.category+ '</td>';
-  	    		newCol += '<td>'+historico.name+     '</td>';				
-				newCol += '<td>'+historico.descricao+'</td>';
-				newCol += '<td>'+'<button class="btn btn-primary btn-xs" id="button-remove" >Remove</button>'+'</td>';
-				
-				newRow.append(newCol);
-  	    		$tableOfContents.append(newRow);
-  	    		showSuccessMessage(" that's what you were running after!");*/
-  	    		 
   	    		var $tableOfContents = $("#table-content");   	    		
   	    		var newRowHeader = $("<tr>");
   	    		
   	    		var reflector = new Reflector(historico);  	    		
   	    		
   	    		if(i==0){
-  	    			props = reflector.getProperties();  	    		
-  	  	    		
-  	    			for( i=0; i<props.length; i++){
-  	  	    			//alert(eval("var newColHeader"+i+"= $('<td>');"));     
-  	    				
-  	    				//eval("var newColHeader"+i+"= $('<td>');");
-  	  	    		    //eval("newColHeader"+i+".append("+props[i]+");");
-  	  	    		    //alert(eval("newColHeader"+i));  	  	    		    
-  	  	    		    //newRowHeader.append(eval("newColHeader"+i));
-  	  	    		    newRowHeader.append("<td>"+eval("historico."+props[i])+"<td>");
-  	  	    			 alert(eval("historico."+props[i]));
-  	  	    		
-  	  	    		
-  	  	    		} 
-  	  	    		
+  	    			props = reflector.getProperties(); 
+  	    			for( i=0; i<props.length; i++){  	  	    			
+  	  	    		    newRowHeader.append("<td>"+props[i]);
+  	  	    			//alert(eval("historico."+props[i]));
+  	  	    		}  	  	    		
   	  	    	    $tableOfContents.append(newRowHeader);
-  	    		}
-  	    		
+  	  	    	}  	    		
   	    		
   	    		///var $tableOfContents = $("#table-content"); 
-  	    		/*var newRow = $("<tr>");   	    		
+  	    		var newRow = $("<tr>");   	    		
   	    		var newInput = $("<input>");   	    		  	    		
   	    		var newCol = '';
   	    		
-  	    		newCol += '<td>'+historico.category+ '</td>';
+  	    		newCol += '<td>'+historico.Categoria+ '</td>';
   	    		newCol += '<td>'+historico.name+     '</td>';				
 				newCol += '<td>'+historico.descricao+'</td>';
 				newCol += '<td>'+'<button class="btn btn-primary btn-xs" id="button-remove" >Remove</button>'+'</td>';
 				
 				newRow.append(newCol);
   	    		$tableOfContents.append(newRow);
-  	    		showSuccessMessage(" that's what you were running after!");*/
+  	    		showSuccessMessage(" that's what you were running after!");
   	    		
   	  	        });
   	      }); 
