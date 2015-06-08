@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +41,7 @@
 	<div  class="container-fluid">
 		<!-- CLASSE PARA DEFINIR UMA LINHA -->
 		<div class="row-fluid">
-			<!-- COLUNA OCUPANDO 2 ESPAÃ‡OS NO GRID -->
+			<!-- COLUNA OCUPANDO 2 ESPAÇOS NO GRID -->
 			<!-- <div class="span2">
 				<h2>Menu</h2>
 				<ul class="nav nav-tabs nav-stacked">
@@ -50,7 +50,7 @@
 					<li><a href="#"> <i class="icon-star"></i>Home
 				</ul>
 			</div> -->
-			<!-- COLUNA OCUPANDO 10 ESPAÃ‡OS NO GRID -->
+			<!-- COLUNA OCUPANDO 10 ESPAÇOS NO GRID -->
 			<div class="span10">
 				<div class="well">
 					<h2>History</h2>
@@ -75,7 +75,7 @@
 					       <tr class="info"> 
 					            <th><b>Assunto</b></th>
 								<th><b>Sobre</b></th>
-								<th><b>DescriÃ§Ã£o</b></th>
+								<th><b>Descrição</b></th>
 								<th><b>Actions</b></th>
 				     	  </tr>	
 						 </thead>				    
