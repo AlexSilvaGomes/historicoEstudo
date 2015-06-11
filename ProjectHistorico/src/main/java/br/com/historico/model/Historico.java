@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Alex
  *
  */
+
 public class Historico {
 
 	private String category;
@@ -96,10 +97,12 @@ public class Historico {
 		return category;
 	}
 
+	@XmlElement(name="Nome")
 	public String getName() {
 		return name;
 	}
 
+	@XmlElement(name="Descrição")
 	public String getDescricao() {
 		return descricao;
 	}

@@ -20,7 +20,11 @@
 
 <script src='js/jquery-1.11.2.min.js' type='text/javascript'></script>
 
+<script src='js/jquery.serializejson.min.js' type='text/javascript'></script>
+
 <script src='js/historico.js' type='text/javascript'></script>
+
+
 
 <title>Remember Everything useful!</title>
 </head>
@@ -66,18 +70,13 @@
 					<input id="button-test" class="btn btn-primary" type="button" value="Get Content" draggable="true" />					
 					
 					<hr/>
-					<div id="div-alert" class="alert alert-info" role="alert">nothing to show yet..</div>
+					<div id="div-alert" class="alert alert-info" role="alert">Nothing to show yet..</div>
 					
 					<table id="table-content"  class="table table-striped table-hover">
 					   
 					    
-					     <thead>
-					       <tr class="info"> 
-					            <th><b>Assunto</b></th>
-								<th><b>Sobre</b></th>
-								<th><b>Descrição</b></th>
-								<th><b>Actions</b></th>
-				     	  </tr>	
+					     <thead  >
+					       
 						 </thead>				    
 					    
 						<tbody  style="border: 1px"  >
@@ -89,6 +88,7 @@
 					<button class="btn btn-primary btn-small">Add</button>
 					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
 					
+					<p id="tag-p" >Nothing</p>
 				</div>
 			</div>
 		</div>

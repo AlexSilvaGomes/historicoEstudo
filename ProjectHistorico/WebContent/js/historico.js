@@ -6,9 +6,9 @@
  * Fun��o que ser� executada quando o conte�do html for carregado 
  * ****************************************************************
  * */
- $(function(){
-	
+ $(function(){	
    	   	
+		 
    	jQuery('#button-click').hover(function(){
    		
    	}, function(){   		
@@ -25,6 +25,12 @@
    		}	
    	);
    	
+   	$('#button-remove').click(
+   	   function(){
+   		alert('here'+this);
+   	   }
+   	 );
+   	
    	$('#button-test').click(function(){
    		
       var $search = $("#text-search"); 
@@ -34,7 +40,7 @@
   	  $.getJSON( urlHistoricos, {
   	      tags: "mount rainier",
   	      tagmode: "any",
-  	      format: "json"
+  	      format: "json" 
   	    	  
   	    }).done(function( data ) {
            
@@ -44,46 +50,43 @@
   	         }
   	         
   	        cleanTable();
+  	        var props;
   	        
   	        
-  	    	 $.each( data.historicos, function( i, historico ) {  
+  	    	 $.each( data.historicos, function( i, historico ) {
   	    		 
-  	    		 var Reflector = function(obj) {
-  	    			  this.getProperties = function() {
-  	    			    var properties = [];
-  	    			    for (var prop in obj) {
-  	    			      if (typeof obj[prop] != 'function') {
-  	    			        properties.push(prop);
-  	    			      }
-  	    			    }
-  	    			    return properties;
-  	    			  };
-  	    		  }
-  	    		 
-  	    		var $tableOfContents = $("#table-content");   	    		
+  	    		var $tableOfContents = $("#table-content");   
+  	    		var $tableOfContentsHead = $("#table-content thead");   	  
   	    		var newRowHeader = $("<tr>");
+  	    		newRowHeader.addClass("info");  	    		 	    		
   	    		
-  	    		var reflector = new Reflector(historico);  	    		
+  	    		//Create the reflector object to found out the attributes that belong to the object
+  	    		var reflector = new Reflector(historico);  	   		
   	    		
+  	    		/*
+  	    		 *Include the header as a pattern of any table
+  	    		 */
   	    		if(i==0){
   	    			props = reflector.getProperties(); 
-  	    			for( i=0; i<props.length; i++){  	  	    			
-  	  	    		    newRowHeader.append("<td>"+props[i]);
-  	  	    			//alert(eval("historico."+props[i]));
-  	  	    		}  	  	    		
-  	  	    	    $tableOfContents.append(newRowHeader);
-  	  	    	}  	    		
+  	    			for( i=0; i<props.length; i++){  	    				
+  	  	    		    newRowHeader.append("<th><b>"+props[i]+"</b></th>"); 
+  	  	    		}    	    			
+  	    			newRowHeader.append("<th>Actions</th>");
+  	    			$tableOfContentsHead.append(newRowHeader);
+  	  	    	} 
   	    		
-  	    		///var $tableOfContents = $("#table-content"); 
-  	    		var newRow = $("<tr>");   	    		
-  	    		var newInput = $("<input>");   	    		  	    		
+  	    		/*
+  	    		 *Include the table's body based on attributes found in the json object
+  	    		 */
+  	    		var newRow = $("<tr>");
+  	    		newRow.addClass("table-row");  	    		
+  	    		newRow.attr("id","teste");
   	    		var newCol = '';
   	    		
-  	    		newCol += '<td>'+historico.Categoria+ '</td>';
-  	    		newCol += '<td>'+historico.name+     '</td>';				
-				newCol += '<td>'+historico.descricao+'</td>';
-				newCol += '<td>'+'<button class="btn btn-primary btn-xs" id="button-remove" >Remove</button>'+'</td>';
-				
+  	    		for( i=0; i<props.length; i++){  	    			
+  	    			newCol += '<td>'+eval('historico.'+props[i]) +'</td>';   	    			
+  	    		}  	    		
+				newCol += '<td>'+'<button class="btn btn-primary btn-xs" id="button-remove" onClick="return removeItem(this)" >Remove</button>'+'</td>';				
 				newRow.append(newCol);
   	    		$tableOfContents.append(newRow);
   	    		showSuccessMessage(" that's what you were running after!");
@@ -93,21 +96,68 @@
   	    
   }); //Close button-test      	
  }); //Close main function 
-     
- function createUrl(url,parameter){
-	 
+ 
+ 
+
+/**
+ *  Will find all the properties into the object using typeof
+ *  @returns array: properties
+ */
+Reflector = function(obj) {
+	this.getProperties = function() {
+		var properties = [];
+		for ( var prop in obj) {
+			if (typeof obj[prop] != 'function') {
+				properties.push(prop);
+			}
+		}
+		return properties;
+	};
+}
+
+
+function removeItem(obj){	
+		
+	var $row = $(obj).parents('.table-row');
+	var id =$row.attr('id');	
+	$row.hide('slow', function(){
+		       $row.remove();
+		       showSuccessMessage("Task completed, the row's id:"+id+" was eliminated!!");
+			});		
+}
+    
+ /**
+	 * Função para concatenar a url com o parâmetro que será enviado
+	 * 
+	 * @param url
+	 * @param parameter
+	 * @returns
+	 */
+function createUrl(url,parameter){ 
 	 if(parameter!=null || parameter!=""){
 		 url=url.concat("/",parameter);
      }	 
 	 return url;
+ } 
+
+
+ /**
+ * this function has the purpose to clean table contents however 
+ * just information into the tbody scope
+ */
+function cleanTable(){		 
+	 var $bodyRowsOfContents = $("#table-content tbody > tr"); //get just children of tbody 
+	 var $headRowsOfContents = $("#table-content thead > tr"); //get just children of thead 
+	 $headRowsOfContents.remove();  	
+	 $bodyRowsOfContents.remove();
  }
  
- function cleanTable(){	 
-	 var $rowsOfContents = $("#table-content tbody > tr"); 
-     $rowsOfContents.remove();  	 
- }
- 
- function showSuccessMessage(message){
+
+ /**
+ * Show messages with success css
+ * @param message
+ */
+function showSuccessMessage(message){
 	 
 	 $div = $("#div-alert");   	 
      $div.html(message);     
@@ -116,6 +166,9 @@
  }
  
  
+/** Show messages with warning css
+ * @param message
+ */
 function showWarningMessage(message){
 	 
 	 $div = $("#div-alert");   	 
