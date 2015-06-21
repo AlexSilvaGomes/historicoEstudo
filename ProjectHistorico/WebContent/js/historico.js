@@ -8,6 +8,10 @@
  * */
  $(function(){	
    	   	
+	$("#show-modal").click(function(){
+		alert('HERE1');
+		$('#input-dialog').modal()
+	});
 		 
    	jQuery('#button-click').hover(function(){
    		

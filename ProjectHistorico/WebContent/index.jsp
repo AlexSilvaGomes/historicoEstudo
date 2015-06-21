@@ -7,16 +7,9 @@
 
 <link type='text/css' href='css/historico.css' rel='stylesheet'>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/bootstrap.css" rel="stylesheet">
 
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+ <script src="js/bootstrap.js"></script>
 
 <script src='js/jquery-1.11.2.min.js' type='text/javascript'></script>
 
@@ -72,25 +65,81 @@
 					<hr/>
 					<div id="div-alert" class="alert alert-info" role="alert">Nothing to show yet..</div>
 					
-					<table id="table-content"  class="table table-striped table-hover">
-					   
+					<table id="table-content"  class="table table-striped table-hover">					   
 					    
-					     <thead  >
-					       
+					     <thead  >					       
 						 </thead>				    
 					    
-						<tbody  style="border: 1px"  >
-						   
+						<tbody  style="border: 1px"  >				   
 							
 						</tbody>
 					</table>
 					
-					<button class="btn btn-primary btn-small">Add</button>
+					<button class="btn btn-primary btn-small"  data-toggle="modal" data-target="#input-dialog" >New</button>
+					<button id="show-modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input-dialog">Open Modal</button>
 					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
 					
-					<p id="tag-p" >Nothing</p>
+					
 				</div>
-			</div>
+				
+			 <div id="input-dialog" class="modal fade">
+					
+                  <div class="modal-content">
+                  
+                     <div class="modal-header">
+                        <h2>Add Resource</h2>
+                     </div>
+                     <div class="modal-body">
+						
+						<label>Nome</label>
+						<input name="text-nome" type="text" class="form-control"   id="text-nome" >
+						</br>
+												
+						<label>Assunto</label>
+						<input name="text-assunto" type="text" class="form-control"   id="text-assunto" >						
+						</br>
+						
+						<label>Descrição</label>
+						<input name="text-desc" type="text" class="form-control"   id="text-desc" >											
+					
+					</div>
+					<div class="modal-footer">
+					   footer..
+					
+					</div>
+                  
+                  </div>
+					<input id="button-test" class="btn btn-primary" type="button" value="Get Content" draggable="true" />					
+															
+					<button class="btn btn-primary btn-small">Add</button>
+				</div>
+				
+				
+								  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+				
+			</div>			
 		</div>
 	</div>
 </body>
