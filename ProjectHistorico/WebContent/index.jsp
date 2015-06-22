@@ -5,17 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<link type='text/css' href='css/historico.css' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<link href="css/bootstrap.css" rel="stylesheet">
-
- <script src="js/bootstrap.js"></script>
-
-<script src='js/jquery-1.11.2.min.js' type='text/javascript'></script>
-
-<script src='js/jquery.serializejson.min.js' type='text/javascript'></script>
+<!-- <script src='js/jquery.serializejson.min.js' type='text/javascript'></script> -->
 
 <script src='js/historico.js' type='text/javascript'></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<link type='text/css' href='css/historico.css' rel='stylesheet'>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
 
 
 
@@ -54,8 +62,8 @@
 					<hr />
 
 					<div class="form-group">
-						<input name="text-search" type="text" class="form-control" style="size: 30px" maxlength="30" 
-							placeholder="Tap a thing" >
+						<input name="text-search" type="text" class="form-control" id="text-search"
+							placeholder="Tap a thing" required data-validation-required-message="Please enter your name.">
 						<p class="help-block text-danger"></p>
 					</div>
 
@@ -65,56 +73,27 @@
 					<hr/>
 					<div id="div-alert" class="alert alert-info" role="alert">Nothing to show yet..</div>
 					
-					<table id="table-content"  class="table table-striped table-hover">					   
+					<table id="table-content"  class="table table-striped table-hover">
+					   
 					    
-					     <thead  >					       
+					     <thead  >
+					       
 						 </thead>				    
 					    
-						<tbody  style="border: 1px"  >				   
+						<tbody  style="border: 1px"  >
+						   
 							
 						</tbody>
 					</table>
 					
-					<button class="btn btn-primary btn-small"  data-toggle="modal" data-target="#input-dialog" >New</button>
-					<button id="show-modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input-dialog">Open Modal</button>
-					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
-
-				</div>
-				
-			 <div id="input-dialog" class="modal fade">
-					
-                  <div class="modal-content">
-                  
-                     <div class="modal-header">
-                        <h2>Add Resource</h2>
-                     </div>
-                     <div class="modal-body">
-						
-						<label>Nome</label>
-						<input name="text-nome" type="text" class="form-control"   id="text-nome" >
-						</br>
-												
-						<label>Assunto</label>
-						<input name="text-assunto" type="text" class="form-control"   id="text-assunto" >						
-						</br>
-						
-						<label>Descrição</label>
-						<input name="text-desc" type="text" class="form-control"   id="text-desc" >											
-					
-					</div>
-					<div class="modal-footer">
-					   footer..
-					
-					</div>
-                  
-                  </div>
-					<input id="button-test" class="btn btn-primary" type="button" value="Get Content" draggable="true" />					
-															
 					<button class="btn btn-primary btn-small">Add</button>
+					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
+					
+					<p id="tag-p" >Nothing</p>
 				</div>
-				
-				
-								  <!-- Button trigger modal -->
+			</div>
+			
+			  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
 </button>
@@ -137,8 +116,7 @@
     </div>
   </div>
 </div>
-				
-			</div>			
+			
 		</div>
 	</div>
 </body>

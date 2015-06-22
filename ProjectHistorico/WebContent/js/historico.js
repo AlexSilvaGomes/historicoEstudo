@@ -8,9 +8,9 @@
  * */
  $(function(){	
    	   	
-	$("#show-modal").click(function(){
+	jQuery("#show-modal").click(function(){
 		alert('HERE1');
-		$('#input-dialog').modal()
+		jQuery('#input-dialog').modal('show');
 	});
 		 
    	jQuery('#button-click').hover(function(){
