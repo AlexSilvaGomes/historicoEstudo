@@ -61,8 +61,8 @@
 					<hr />
 
 					<div class="form-group">
-						<input name="text-search" type="text" class="form-control" id="text-search"
-							placeholder="Tap a thing" required data-validation-required-message="Please enter your name.">
+						<input name="text-search" type="text" class="form-control" style="size: 30px" maxlength="30" 
+							placeholder="Tap a thing" >
 						<p class="help-block text-danger"></p>
 					</div>
 
@@ -87,8 +87,7 @@
 					
 					<button class="btn btn-primary btn-small">Add</button>
 					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
-					
-					<p id="tag-p" >Nothing</p>
+										
 				</div>
 			</div>
 		</div>
