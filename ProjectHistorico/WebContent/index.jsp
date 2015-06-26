@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+<!-- jQuery must come before bootstrap always -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- <script src='js/jquery.serializejson.min.js' type='text/javascript'></script> -->
@@ -85,15 +86,63 @@
 							
 						</tbody>
 					</table>
+								
 					
-					<button class="btn btn-primary btn-small">Add</button>
-					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>
-					
-					<p id="tag-p" >Nothing</p>
+					<button class="btn btn-primary btn-small"  data-toggle="modal" data-target="#input-dialog" >New</button>
+					<button id="show-modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input-dialog">Open Modal</button>
+					<button class="btn btn-primary btn-small" id="button-clean" >Clean</button>	
+										
 				</div>
 			</div>
-			
-			  <!-- Button trigger modal -->
+
+
+			<div id="input-dialog" class="modal fade"  tabindex="-1" role="dialog">
+
+				<div class="modal-content">
+					<div class="modal-dialog modal-sm" role="document">
+										
+						<div class="modal-header">
+						     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h2>Add Resource</h2>
+						</div>
+						
+						<div class="modal-body">
+
+                        <form> 
+                            <div class="form-group">
+							    <label  for="text-nome" class="control-label">Name</label> 
+								<input name="text-nome" type="text"  class="form-control" id="text-nome"> </br> 
+								
+								 <label  for="text-assunto" class="control-label">Subject</label> 
+								<input name="text-assunto" type="text" class="form-control" id="text-assunto"> </br> 
+								
+								 <label  for="text-desc" class="control-label">Description</label> 
+								<input name="text-desc" type="text" class="form-control" id="text-desc"> 
+							  </div>
+				          </form>
+							.....
+
+						</div>
+						
+						<div class="modal-footer">
+						
+							
+							<button class="btn btn-primary btn-small">Save</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+
+			<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
 </button>
